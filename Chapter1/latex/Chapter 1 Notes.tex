@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt]{article}
+% PREAMBLE BEGIN
+% \usepackage{color}
+% PREAMBLE END
+\begin{document} %BEGIN
+\title{Chapter 1 Notes}
+\author{Raymond Tay}
+\date{\today}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\pagenumbering{arabic}
+
+\section{Introduction}
+
+The heart of any domain model is the set of behaviors or interactions between the various domain elements. These behaviors are at  a higher level of granularity than individual entities or value objects.
+
+\vspace{3mm}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|p{0.7\textwidth}|}
+\hline
+\textsc{Element} & \textsc{Characteristics} \\
+\hline
+Entity & \begin{itemize}
+              \item Has an entity
+              \item Passes through multiple states in the lifecycle
+              \item Usually has a definite lifecycle in the business
+              \end{itemize} \\
+\hline
+Value Object & \begin{itemize}
+\item Semantically immutable
+\item Can be freely shared across entities
+\end{itemize} \\
+\hline
+Service & \begin{itemize}
+\item More macro-level abstraction than entity or value object
+\item Involves multiple entities and value objects
+\item Usually models a use case of the business
+\end{itemize} \\
+\hline
+\end{tabular}
+\caption{Domain Elements}
+\end{table}
+
+\subsection{Domain Element Semantics and Bounded Context}
+Let's conclude this discussion on the various domain elements with an important concept that relates their semantics to the bounded context. When we say that an address is a \em{value object}\em, it's a value object only within the scope of the bounded context in which it's being defined.
+
+\subsection{Lifecycle of a domain object}
+Every object (entity or value object) that you have in any model must have a definite lifecycle pattern. For every type of object you have in your model, you must have defined ways to handle each of the following events:
+\begin{enumerate}
+\item \textsc{Creation} - How the object is created within the systme.
+\item \textsc{Participation in behaviors} - How the object is represented in memory when it interacts within the system.
+\item \textsc{Persistence} - How the object is maintained in the persistent form.
+\end{enumerate}
+
+\end{document}   %END
